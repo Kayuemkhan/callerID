@@ -1,0 +1,107 @@
+<resources>
+  <string name="app_name">Wallboard</string>
+  <string name="login_hint"><![CDATA[Please enter Username & Password]]></string>
+  <string name="activation_hint"><![CDATA[Please enter Activation key]]></string>
+  <string name="debug_user_id">jaman</string>
+  <string name="debug_user_password">12345678</string>
+
+  <string name="no_internet">No Internet Connection!</string>
+  <string name="generic_error_msg">Something wrong happened. Please try again later!</string>
+  <string name="note_title_error">Please enter note title.</string>
+  <string name="password_error">Password Required!</string>
+  <string name="username_error">User Name Required!</string>
+  <string name="server_error_message">Service temporarily unavailable.</string>
+  <string name="success">Success.</string>
+  <string name="empty_data">Data is empty</string>
+  <string name="loading">loading</string>
+  <string name="something_went_wrong">Something Went Wrong</string>
+
+  <string name="logout">Logout</string>
+  <string name="skill_view">Skill View</string>
+  <string name="agent_states">Agent Status</string>
+  <string name="alerts">Alerts</string>
+  <string name="feedback">Feedback</string>
+  <string name="mtd">MTD</string>
+  <string name="ftd">FTD</string>
+  <string name="average_ht">AHT</string>
+  <string name="average_wt">AWT</string>
+
+  <string name="confirm_exit">Confirm Exit?</string>
+  <string name="confirm_logout">Confirm Logout?</string>
+  <string name="exit_body">Are you sure, You want to exit?</string>
+  <string name="logout_body">Are you sure, You want to logout?</string>
+  <string name="yes">YES</string>
+  <string name="no">NO</string>
+
+
+  <string name="not_ready_agents">Not Ready Agents</string>
+  <string name="acw_agents">ACW Agents</string>
+  <string name="profile">Profile</string>
+  <string name="notification">Notification</string>
+  <string name="notes">Note</string>
+  <string name="back">Back</string>
+
+  <string name="delete_note">"Are you sure you want to delete this note?"</string>
+  <string name="delete_note_title">"Delete Note?"</string>
+  <string name="new_">New</string>
+  <string name="sign_in">Sign In</string>
+  <string name="password">Password</string>
+  <string name="username">Username</string>
+  <string name="login">Login</string>
+  <string name="demo_time">00:00</string>
+  <string name="mm_ss">(mm:ss)</string>
+  <string name="aht_mm_ss">AHT (MM:SS)</string>
+  <string name="awt_mm_ss">AWT (MM:SS)</string>
+  <string name="_0">0</string>
+  <string name="dashboard">Dashboard</string>
+  <string name="home">Home</string>
+  <string name="ab_ratio">Ab. Ratio</string>
+  <string name="avg_talk_time">Avg. Talk Time</string>
+  <string name="avg_q_time">Avg. Q Time</string>
+  <string name="demo_chart_item_count">Item : 13%</string>
+  <string name="call_chart_title">Call Chart</string>
+  <string name="agent_chart">Agent Chart</string>
+  <string name="service_chart">Service Chart</string>
+  <string name="login_agents">Login Agents</string>
+  <string name="calls_received">Calls Received</string>
+  <string name="call_status">Call Status</string>
+
+  <string name="call_in_queue">Call in Queue: </string>
+  <string name="avg_talk_tome">Avg. Talk Tome</string>
+  <string name="wait_time">Wait Time</string>
+  <string name="oldest_queue">Oldest Queue: </string>
+
+
+
+  <string name="avg_handle_time">Avg. Handel Time: </string>
+  <string name="avg_wait_time">Avg. Wait Time: </string>
+
+  <string name="offered_call">Offered</string>
+  <string name="answered_call">Answered</string>
+  <string name="abandon_call">Abandon</string>
+
+  <string name="call_waiting">Call Waiting</string>
+  <string name="abandon_ratio">Abandon Ratio</string>
+
+  <string name="total_login_agents">Login Agents</string>
+  <string name="available_agents">Total Not Ready</string>
+  <string name="idle_agents">Idle Agents</string>
+
+  <string name="service_level">Service Level</string>
+  <string name="aht_inbounds">AHT Inbound</string>
+  <string name="empty_graph">Empty graph</string>
+  <string name="activation_key">Activation key</string>
+  <string name="submit">Submit</string>
+  <string name="menu">Menu</string>
+  <string name="demo_date">Monday 29, April</string>
+  <string name="all_notes">All Notes</string>
+  <string name="search">Search</string>
+  <string name="all_notifications">All Notifications</string>
+  <string name="view_all_new">View All New</string>
+  <string name="title">Title</string>
+  <string name="enter_your_details_here">Enter your details here</string>
+  <string name="create_note">Create Note</string>
+  <string name="update_note">Update Note</string>
+  <string name="skillView">SKILL VIEW</string>
+  <string name="dashboard_data">http://192.168.11.38/wallboardDemoData.php</string>
+</resources>
