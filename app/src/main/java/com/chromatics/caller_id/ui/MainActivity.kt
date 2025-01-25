@@ -22,7 +22,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private val REQUEST_CODE_READ_CONTACTS = 100
+
+    // Request codes for multiple permissions
+    private val REQUEST_CODE_MULTIPLE_PERMISSIONS = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,18 +34,39 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment_activity_main)
         binding.navView.setupWithNavController(navController)
 
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
-            != PackageManager.PERMISSION_GRANTED) {
+        // Check and request permissions
+        checkAndRequestPermissions()
+    }
+
+    private fun checkAndRequestPermissions() {
+        val permissionsNeeded = mutableListOf<String>()
+        val permissions = arrayOf(
+            android.Manifest.permission.READ_CONTACTS,
+            android.Manifest.permission.CALL_PHONE,
+            android.Manifest.permission.READ_CALL_LOG,
+        )
+
+        // Check each permission and add to the list if not granted
+        for (permission in permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                permissionsNeeded.add(permission)
+            }
+        }
+
+        // Request permissions if any are not granted
+        if (permissionsNeeded.isNotEmpty()) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.READ_CONTACTS),
-                REQUEST_CODE_READ_CONTACTS
+                permissionsNeeded.toTypedArray(),
+                REQUEST_CODE_MULTIPLE_PERMISSIONS
             )
         } else {
-            // Permission is already granted, you can read contacts
-//            fetchContacts()
+            // All permissions granted, proceed with the functionality
+            Log.d("MainActivity", "All permissions granted.")
+//            proceedWithAppFeatures()
         }
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -51,15 +74,29 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            REQUEST_CODE_READ_CONTACTS -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permission granted, fetch contacts
-//                    fetchContacts()
+            REQUEST_CODE_MULTIPLE_PERMISSIONS -> {
+                val deniedPermissions = mutableListOf<String>()
+                for (i in permissions.indices) {
+                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                        deniedPermissions.add(permissions[i])
+                    }
+                }
+
+                if (deniedPermissions.isEmpty()) {
+                    // All permissions granted
+                    Log.d("MainActivity", "All requested permissions granted.")
+//                    proceedWithAppFeatures()
                 } else {
-                    // Permission denied, show a message or handle accordingly
+                    // Some permissions denied, show a message or handle accordingly
+                    Toast.makeText(
+                        this,
+                        "Some permissions were denied. Please enable them in settings.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
     }
 }
+
 

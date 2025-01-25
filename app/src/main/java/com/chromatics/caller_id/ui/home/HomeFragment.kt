@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.chromatics.caller_id.R
 import com.chromatics.caller_id.databinding.SplashFragmentBinding
+import com.chromatics.caller_id.ui.incoming_calls.IncomingCallsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

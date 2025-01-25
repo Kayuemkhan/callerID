@@ -168,6 +168,7 @@ dependencies {
 
 
   def eventbus_version = '3.2.0'
+  implementation "androidx.paging:paging-runtime:3.1.1" // or the latest version
 
   implementation 'org.slf4j:slf4j-api:1.7.32'
   runtimeOnly 'com.github.tony19:logback-android:2.0.0'

@@ -11,7 +11,6 @@ import com.chromatics.caller_id.common.DeviceProtectedStorageMigrator
 import com.chromatics.caller_id.utils.DebuggingUtils
 import com.chromatics.caller_id.utils.Settings
 import dagger.hilt.android.HiltAndroidApp
-
 @HiltAndroidApp
 class App : Application() {
 
@@ -19,14 +18,11 @@ class App : Application() {
     @SuppressLint("StaticFieldLeak")
     private var instance: App? = null
 
-    @SuppressLint("StaticFieldLeak")
-    private var settings: Settings? = null
+    @JvmStatic
+    var settings: Settings? = null  // `settings` generates a default getter
 
     @JvmStatic
     fun getInstance(): App? = instance
-
-    @JvmStatic
-    fun getSettings(): Settings? = settings
 
     fun setUiMode(uiMode: Int) {
       AppCompatDelegate.setDefaultNightMode(uiMode)

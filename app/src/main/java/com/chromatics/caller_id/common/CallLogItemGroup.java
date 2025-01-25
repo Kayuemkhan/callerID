@@ -11,9 +11,16 @@ import java.util.Map;
 
 public class CallLogItemGroup {
 
-    private List<CallLogItem> items = new LinkedList<>();
+    private final List<CallLogItem> items;
 
-    public CallLogItemGroup() {}
+    public CallLogItemGroup() {
+        this.items = new ArrayList<>();
+    }
+
+    public CallLogItemGroup(List<CallLogItem> items) {
+        this.items = items;
+    }
+
 
     public List<CallLogItem> getItems() {
         return items;

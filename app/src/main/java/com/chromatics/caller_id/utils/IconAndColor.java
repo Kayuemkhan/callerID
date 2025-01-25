@@ -9,6 +9,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.widget.ImageViewCompat;
 
 import com.chromatics.caller_id.R;
 import com.chromatics.caller_id.common.NumberInfo;
@@ -20,8 +21,8 @@ public class IconAndColor {
     public final int iconResId;
     @ColorRes
     final int colorResId;
-    final boolean noInfo;
-    private ImageView ImageViewCompat;
+    public final boolean noInfo;
+    private androidx.core.widget.ImageViewCompat ImageViewCompat;
 
     private IconAndColor(int iconResId, int colorResId) {
         this(iconResId, colorResId, false);
@@ -38,11 +39,11 @@ public class IconAndColor {
         return UiUtils.getColorInt(context, colorResId);
     }
 
-//    void applyToImageView(AppCompatImageView imageView) {
-//        imageView.setImageResource(iconResId);
-//        ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(
-//                getColorInt(imageView.getContext())));
-//    }
+   public void applyToImageView(AppCompatImageView imageView) {
+        imageView.setImageResource(iconResId);
+        androidx.core.widget.ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(
+                getColorInt(imageView.getContext())));
+    }
 
     static IconAndColor of(@DrawableRes int icon, @ColorRes int color) {
         return new IconAndColor(icon, color);

@@ -12,7 +12,7 @@ public class YacbHolder {
     private static WebService webService;
     private static DbManager dbManager;
     private static SiaMetadata siaMetadata;
-    private static CommunityDatabase communityDatabase;
+    public static CommunityDatabase communityDatabase;
     private static FeaturedDatabase featuredDatabase;
     private static CommunityReviewsLoader communityReviewsLoader;
 

@@ -144,4 +144,13 @@
   <string name="notification_channel_name_blocked_info">Blocked info</string>
   <string name="notification_channel_name_monitoring_service">Monitoring service</string>
   <string name="notification_channel_name_tasks">Tasks</string>
+
+  <string name="duration_h_m_s">%1$dh %2$dm %3$ds</string>
+  <string name="duration_m_s">%1$dm %2$ds</string>
+  <string name="duration_s">%ds</string>
+  <string name="no_main_db_title">Download main database</string>
+  <string name="no_main_db_text">Database is not present. For the app to perform most of its functions you need to download DB. It will take around 25 MB of traffic.</string>
+  <string name="download_main_db">Download database</string>
+  <string name="main_db_downloading">Downloading DB…</string>
+
 </resources>

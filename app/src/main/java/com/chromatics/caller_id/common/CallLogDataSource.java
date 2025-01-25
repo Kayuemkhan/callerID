@@ -160,6 +160,8 @@ public class CallLogDataSource extends ItemKeyedDataSource<CallLogDataSource.Gro
         for (CallLogItem item : items) {
             NumberInfo numberInfo = numberInfoCache.get(item.number);
             if (numberInfo == null) {
+                System.out.println("numberInfo");
+                System.out.println(numberInfo);
                 numberInfo = YacbHolder.getNumberInfo(item.number, countryCode);
                 numberInfoCache.put(item.number, numberInfo);
             }
