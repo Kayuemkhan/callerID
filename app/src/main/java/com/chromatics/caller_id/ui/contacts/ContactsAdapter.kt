@@ -19,9 +19,12 @@ class ContactsAdapter : ListAdapter<String, ContactsAdapter.ContactViewHolder>(C
         holder.bind(getItem(position))
     }
 
-    inner class ContactViewHolder(private val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ContactViewHolder(private val binding: ItemContactBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(contact: String) {
             binding.contactName.text = contact
+            val firstLetter = if (contact.isNotEmpty()) contact[0].toString() else "?"
+            binding.firstLetter.text = firstLetter
         }
     }
 

@@ -4,15 +4,17 @@ plugins {
   id 'kotlin-kapt'
   id 'dagger.hilt.android.plugin'
   id 'kotlin-parcelize'
+  id 'org.greenrobot.greendao'
+
 }
 
 android {
-  compileSdk 33
+  compileSdk 34
 
   defaultConfig {
     applicationId "com.chromatics.caller_id"
     minSdk 23
-    targetSdk 33
+    targetSdk 34
     versionCode 3
     versionName "3.0"
 
@@ -55,6 +57,7 @@ dependencies {
   implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
   implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
   implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+  implementation 'com.squareup.okhttp3:okhttp:4.11.0' // Official OkHttp dependency
 
   //design
   implementation 'com.google.android.material:material:1.5.0'
@@ -63,6 +66,7 @@ dependencies {
   //navigation
   implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
   implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    implementation 'androidx.paging:paging-common-android:3.3.5'
 //    implementation 'androidx.activity:activity:1.10.0'
 
     //viewModelTesting
@@ -124,9 +128,7 @@ dependencies {
 
   //lottie
   implementation 'com.airbnb.android:lottie:3.4.0'
-
-
-  implementation 'com.google.android.flexbox:flexbox:3.0.0'
+  implementation 'commons-codec:commons-codec:1.15'
 
 
   // Charts
@@ -164,4 +166,17 @@ dependencies {
     exclude group:'androidx.test', module:'monitor'
   }
 
+
+  def eventbus_version = '3.2.0'
+
+  implementation 'org.slf4j:slf4j-api:1.7.32'
+  runtimeOnly 'com.github.tony19:logback-android:2.0.0'
+  implementation 'org.conscrypt:conscrypt-android:2.5.2'
+  //noinspection GradleDependency: 3.12.* is the latest version compatible with Android <5
+  implementation 'com.squareup.okhttp3:okhttp:3.12.13'
+//  implementation 'com.gitlab.xynngh:LibPhoneNumberInfo:c77bdd2b69'
+  implementation 'org.apache.commons:commons-csv:1.8'
+  implementation 'org.greenrobot:greendao:3.3.0'
+  implementation "org.greenrobot:eventbus:$eventbus_version"
+  annotationProcessor "org.greenrobot:eventbus-annotation-processor:$eventbus_version"
 }

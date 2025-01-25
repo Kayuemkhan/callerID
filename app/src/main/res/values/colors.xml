@@ -44,4 +44,11 @@
   <color name="item_color_three">#FFFFD07E</color>
   <color name="item_color_four">#FFFF848D</color>
   <color name="item_color_five">#FFFF66FF</color>
+
+  <color name="ratePositive">#679f41</color>
+  <color name="rateNeutral">#ffb300</color>
+  <color name="rateNegative">#d40000</color>
+  <color name="notFound">#999999</color>
+
+  <color name="gray">#808080</color>
 </resources>

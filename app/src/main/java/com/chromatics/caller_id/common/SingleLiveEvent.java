@@ -1,4 +1,4 @@
-package com.chromatics.caller_id.utils;
+package com.chromatics.caller_id.common;
 
 import android.util.Log;
 

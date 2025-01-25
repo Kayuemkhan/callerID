@@ -1,0 +1,95 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="@string/androidx_startup">
+
+    <PreferenceCategory app:title="@string/androidx_startup">
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:key="incomingCallNotifications"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+        <SwitchPreferenceCompat
+            app:key="autoUpdateEnabled"
+            app:persistent="false"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+        <SwitchPreferenceCompat
+            app:key="useContacts"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+        <dummydomain.yetanothercallblocker.preference.IntListPreference
+            app:defaultValue="-1"
+            app:entries="@array/call_log_grouping_entries"
+            app:entryValues="@array/ui_mode_entry_values"
+            app:key="uiMode"
+            app:title="@string/androidx_startup"
+            app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            app:defaultValue="consecutive"
+            app:entries="@array/call_log_grouping_entries"
+            app:entryValues="@array/call_log_grouping_values"
+            app:key="callLogGrouping"
+            app:title="@string/call_log_grouping"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/androidx_startup">
+        <SwitchPreferenceCompat
+            app:key="blockNegativeSiaNumbers"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+        <SwitchPreferenceCompat
+            app:key="blockHiddenNumbers"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:key="blockBlacklisted"
+            app:summary="@string/save_crashes_to_external_storage"
+            app:title="@string/androidx_startup" />
+        <SwitchPreferenceCompat
+            app:key="useCallScreeningService"
+            app:persistent="false"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+    </PreferenceCategory>
+
+    <SwitchPreferenceCompat
+        app:key="useMonitoringService"
+        app:summary="@string/androidx_startup"
+        app:title="@string/androidx_startup" />
+
+    <PreferenceCategory
+        app:key="categoryNotifications"
+        app:title="@string/androidx_startup">
+        <Preference
+            app:key="notificationChannelSettings"
+            app:persistent="false"
+            app:title="@string/androidx_startup" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="categoryNotificationsLegacy"
+        app:title="@string/androidx_startup">
+        <SwitchPreferenceCompat
+            app:key="showNotificationsForKnownCallers"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+        <SwitchPreferenceCompat
+            app:key="showNotificationsForUnknownCallers"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+        <SwitchPreferenceCompat
+            app:key="showNotificationsForBlockedCallsNonPersistent"
+            app:persistent="false"
+            app:summary="@string/androidx_startup"
+            app:title="@string/androidx_startup" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/settings_screen_advanced">
+        <Preference
+            app:fragment="dummydomain.yetanothercallblocker.AdvancedSettingsFragment"
+            app:key="screenAdvanced"
+            app:title="@string/settings_screen_advanced" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

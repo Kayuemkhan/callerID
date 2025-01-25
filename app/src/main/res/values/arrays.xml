@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ui_mode_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="call_log_grouping_entries">
+        <item>@string/call_log_grouping_none</item>
+        <item>@string/call_log_grouping_consecutive</item>
+        <item>@string/call_log_grouping_day</item>
+    </string-array>
+    <string-array name="call_log_grouping_values">
+        <item>none</item>
+        <item>consecutive</item>
+        <item>day</item>
+    </string-array>
+
+    <string-array name="block_in_limited_mode_entries">
+        <item>@string/block_in_limited_mode_rating</item>
+        <item>@string/block_in_limited_mode_blacklist</item>
+    </string-array>
+    <string-array name="block_in_limited_mode_values">
+        <item>rating</item>
+        <item>blacklist</item>
+    </string-array>
+    <string-array name="block_in_limited_mode_default_values">
+        <item>rating</item>
+    </string-array>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:key="screenAdvanced"
+    app:title="@string/shibli_vai">
+
+    <PreferenceCategory
+        app:key="categoryAdvancedDb"
+        app:title="@string/settings_category_database">
+
+<!--        <Preference-->
+<!--            app:key="dbManagement"-->
+<!--            app:persistent="false"-->
+<!--            app:title="@string/save_crashes_to_external_storage">-->
+<!--            <intent-->
+<!--                android:targetClass="dummydomain.yetanothercallblocker.DbManagementActivity"-->
+<!--                android:targetPackage="@string/app_id" />-->
+<!--        </Preference>-->
+
+        <Preference
+            app:fragment="dummydomain.yetanothercallblocker.DbFilteringSettingsFragment"
+            app:key="dbFiltering"
+            app:title="@string/settings_screen_db_filtering" />
+
+    </PreferenceCategory>
+
+    <MultiSelectListPreference
+        android:defaultValue="@array/block_in_limited_mode_default_values"
+        android:entries="@array/block_in_limited_mode_entries"
+        android:entryValues="@array/block_in_limited_mode_values"
+        android:key="blockInLimitedMode"
+        android:summary="@string/block_in_limited_mode_summary"
+        android:title="@string/block_in_limited_mode" />
+
+    <PreferenceCategory
+        app:key="categoryCountryCodes"
+        app:title="@string/settings_category_country_codes">
+        <Preference
+            app:key="countryCodesInfo"
+            app:persistent="false"
+            app:summary="@string/country_codes_info_summary"
+            app:title="@string/country_codes_info" />
+        <EditTextPreference
+            app:key="countryCodeOverride"
+            app:summary="@string/country_code_override_summary"
+            app:title="@string/country_code_override" />
+        <EditTextPreference
+            app:key="countryCodeForReviewsOverride"
+            app:summary="@string/country_code_for_reviews_override_summary"
+            app:title="@string/country_code_for_reviews_override" />
+    </PreferenceCategory>
+
+    <EditTextPreference
+        app:key="databaseDownloadUrl"
+        app:title="@string/database_download_url" />
+
+    <PreferenceCategory
+        app:key="categoryDebugging"
+        app:title="@string/settings_category_debugging">
+        <Preference
+            app:key="exportLogcat"
+            app:persistent="false"
+            app:summary="@string/export_logcat_summary"
+            app:title="@string/export_logcat" />
+        <SwitchPreferenceCompat
+            app:key="saveCrashesToExternalStorage"
+            app:summary="@string/save_crashes_to_external_storage_summary"
+            app:title="@string/save_crashes_to_external_storage" />
+        <SwitchPreferenceCompat
+            app:key="saveLogcatOnCrash"
+            app:summary="@string/save_logcat_on_crash_summary"
+            app:title="@string/save_logcat_on_crash" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
