@@ -16,13 +16,13 @@
             app:key="useContacts"
             app:summary="@string/androidx_startup"
             app:title="@string/androidx_startup" />
-        <dummydomain.yetanothercallblocker.preference.IntListPreference
-            app:defaultValue="-1"
-            app:entries="@array/call_log_grouping_entries"
-            app:entryValues="@array/ui_mode_entry_values"
-            app:key="uiMode"
-            app:title="@string/androidx_startup"
-            app:useSimpleSummaryProvider="true" />
+<!--        <dummydomain.yetanothercallblocker.preference.IntListPreference-->
+<!--            app:defaultValue="-1"-->
+<!--            app:entries="@array/call_log_grouping_entries"-->
+<!--            app:entryValues="@array/ui_mode_entry_values"-->
+<!--            app:key="uiMode"-->
+<!--            app:title="@string/add_to_blacklist"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
         <ListPreference
             app:defaultValue="consecutive"
             app:entries="@array/call_log_grouping_entries"

@@ -4,8 +4,9 @@ import android.content.Context;
 
 import androidx.annotation.StringRes;
 
-import dummydomain.yetanothercallblocker.R;
-import dummydomain.yetanothercallblocker.sia.model.NumberCategory;
+import com.chromatics.caller_id.R;
+import com.chromatics.caller_id.utils.NumberCategory;
+;
 
 public class SiaNumberCategoryUtils {
 
@@ -16,7 +17,7 @@ public class SiaNumberCategoryUtils {
     @StringRes
     public static int getNameResId(NumberCategory category) {
         if (category == null) {
-            return R.string.sia_category_none;
+            return R.string.settings_category_debugging;
         }
 
         switch (category) {

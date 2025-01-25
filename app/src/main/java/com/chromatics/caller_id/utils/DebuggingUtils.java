@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 
+import com.chromatics.caller_id.App;
+import com.chromatics.caller_id.BuildConfig;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,8 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import dummydomain.yetanothercallblocker.App;
-import dummydomain.yetanothercallblocker.BuildConfig;
 
 public class DebuggingUtils {
 

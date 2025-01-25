@@ -33,14 +33,5 @@ class SplashFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
 
 
-
-    viewModel.navigatePage.observe(viewLifecycleOwner) { state: State ->
-      when (state) {
-        HOME -> {
-//          findNavController().navigate(R.id.action_splashFragment_to_navigation_contacts)
-
-        }
-      }
-    }
   }
 }

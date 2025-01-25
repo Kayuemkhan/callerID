@@ -1,6 +1,7 @@
 package com.chromatics.caller_id.common;
 
-import static dummydomain.yetanothercallblocker.data.CallLogHelper.loadCalls;
+
+import static com.chromatics.caller_id.common.CallLogHelper.loadCalls;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import androidx.arch.core.util.Function;
 import androidx.paging.DataSource;
 import androidx.paging.ItemKeyedDataSource;
 
+import com.chromatics.caller_id.App;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import dummydomain.yetanothercallblocker.App;
+import java.util.Objects;
 
 public class CallLogDataSource extends ItemKeyedDataSource<CallLogDataSource.GroupId, CallLogItemGroup> {
 
@@ -153,7 +155,7 @@ public class CallLogDataSource extends ItemKeyedDataSource<CallLogDataSource.Gro
     }
 
     private List<CallLogItem> loadInfo(List<CallLogItem> items) {
-        String countryCode = App.getSettings().getCachedAutoDetectedCountryCode();
+        String countryCode = Objects.requireNonNull(App.getSettings()).getCachedAutoDetectedCountryCode();
 
         for (CallLogItem item : items) {
             NumberInfo numberInfo = numberInfoCache.get(item.number);

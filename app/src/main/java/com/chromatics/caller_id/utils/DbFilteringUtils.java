@@ -3,18 +3,17 @@ package com.chromatics.caller_id.utils;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.chromatics.caller_id.common.CallLogHelper;
+import com.chromatics.caller_id.common.CallLogItem;
+import com.chromatics.caller_id.common.NumberFilter;
+import com.chromatics.caller_id.common.NumberUtils;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import dummydomain.yetanothercallblocker.Settings;
-import dummydomain.yetanothercallblocker.data.CallLogHelper;
-import dummydomain.yetanothercallblocker.data.CallLogItem;
-import dummydomain.yetanothercallblocker.data.NumberFilter;
-import dummydomain.yetanothercallblocker.data.NumberUtils;
 
 public class DbFilteringUtils {
 

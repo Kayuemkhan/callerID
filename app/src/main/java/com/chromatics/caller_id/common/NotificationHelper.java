@@ -1,8 +1,10 @@
 package com.chromatics.caller_id.common;
 
-import static dummydomain.yetanothercallblocker.IntentHelper.clearTop;
-import static dummydomain.yetanothercallblocker.IntentHelper.pendingActivity;
 
+
+import static com.chromatics.caller_id.utils.IntentHelper.pendingActivity;
+
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -16,10 +18,17 @@ import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.chromatics.caller_id.App;
+import com.chromatics.caller_id.R;
+import com.chromatics.caller_id.models.CommunityDatabaseItem;
+import com.chromatics.caller_id.ui.MainActivity;
+import com.chromatics.caller_id.utils.IconAndColor;
+import com.chromatics.caller_id.utils.NumberInfoUtils;
+import com.chromatics.caller_id.utils.UiUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import dummydomain.yetanothercallblocker.sia.model.database.CommunityDatabaseItem;
 
 public class NotificationHelper {
 
@@ -103,8 +112,8 @@ public class NotificationHelper {
                 new Intent(context, MainActivity.class));
 
         return new NotificationCompat.Builder(context, CHANNEL_ID_MONITORING_SERVICE)
-                .setSmallIcon(R.drawable.ic_security_24dp)
-                .setContentTitle(context.getString(R.string.monitoring_service_notification_title))
+                .setSmallIcon(R.drawable.ic_fab_icon)
+                .setContentTitle(context.getString(R.string.default_caller_id_app))
                 .setContentIntent(contentIntent)
                 .setCategory(NotificationCompat.CATEGORY_SERVICE)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
@@ -115,13 +124,13 @@ public class NotificationHelper {
     public static Notification createServiceNotification(Context context, String title) {
         initNotificationChannels(context);
 
-        if (title == null) title = context.getString(R.string.notification_background_operation);
+        if (title == null) title = context.getString(R.string.app_name);
 
         PendingIntent contentIntent = pendingActivity(context,
                 new Intent(context, MainActivity.class));
 
         return new NotificationCompat.Builder(context, CHANNEL_ID_TASKS)
-                .setSmallIcon(R.drawable.ic_file_download_24dp)
+                .setSmallIcon(R.drawable.ic_done)
                 .setContentIntent(contentIntent)
                 .setContentTitle(title).build();
     }
@@ -135,30 +144,30 @@ public class NotificationHelper {
         switch (numberInfo.rating) {
             case POSITIVE:
                 channelId = CHANNEL_ID_POSITIVE;
-                title = context.getString(R.string.notification_incoming_call_positive);
+                title = context.getString(R.string.incoming_calls);
                 break;
 
             case NEUTRAL:
                 channelId = CHANNEL_ID_NEUTRAL;
-                title = context.getString(R.string.notification_incoming_call_neutral);
+                title = context.getString(R.string.call_log_grouping);
                 break;
 
             case NEGATIVE:
                 channelId = CHANNEL_ID_NEGATIVE;
-                title = context.getString(R.string.notification_incoming_call_negative);
+                title = context.getString(R.string.call_block);
                 break;
 
             default:
                 unknown = true;
                 channelId = CHANNEL_ID_UNKNOWN;
-                title = context.getString(R.string.notification_incoming_call_unknown);
+                title = context.getString(R.string.call_log_grouping);
                 break;
         }
 
         // up for debate
         if (numberInfo.contactItem != null && unknown) {
             channelId = CHANNEL_ID_KNOWN;
-            title = context.getString(R.string.notification_incoming_call_contact);
+            title = context.getString(R.string.call_log_grouping_day);
         }
 
         title = concat(title, " - ", getTitleExtra(context, numberInfo));
@@ -179,20 +188,20 @@ public class NotificationHelper {
                 .setShowWhen(false)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC); // TODO: check
 
-        addCallNotificationIntents(context, builder, numberInfo);
+//        addCallNotificationIntents(context, builder, numberInfo);
 
         return new NotificationWithInfo(builder.build(), channelId);
     }
 
     private static Notification createBlockedCallNotification(Context context, NumberInfo numberInfo) {
-        String title = concat(context.getString(R.string.notification_blocked_call),
+        String title = concat(context.getString(R.string.call_block),
                 " - ", getTitleExtra(context, numberInfo));
 
         String text = getBlockedDescription(context, numberInfo);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 context, CHANNEL_ID_BLOCKED_INFO)
-                .setSmallIcon(R.drawable.ic_brick_24dp)
+                .setSmallIcon(R.drawable.ic_brick)
                 .setColor(UiUtils.getColorInt(context, R.color.rateNegative))
                 .setContentTitle(title)
                 .setContentText(firstLine(text))
@@ -201,7 +210,7 @@ public class NotificationHelper {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setCategory(NotificationCompat.CATEGORY_STATUS);
 
-        addCallNotificationIntents(context, builder, numberInfo);
+//        addCallNotificationIntents(context, builder, numberInfo);
 
         return builder.build();
     }
@@ -234,12 +243,13 @@ public class NotificationHelper {
         return numberInfo.noNumber ? context.getString(R.string.no_number) : numberInfo.number;
     }
 
+    @SuppressLint("StringFormatInvalid")
     private static String getCommunityDescriptionPart(Context context, NumberInfo numberInfo) {
         if (numberInfo.communityDatabaseItem != null) {
             CommunityDatabaseItem communityItem = numberInfo.communityDatabaseItem;
 
             if (communityItem.hasRatings()) {
-                return context.getString(R.string.notification_incoming_call_text_description,
+                return context.getString(R.string.incoming_calls,
                         communityItem.getNegativeRatingsCount(), communityItem.getPositiveRatingsCount(),
                         communityItem.getNeutralRatingsCount());
             }
@@ -276,25 +286,25 @@ public class NotificationHelper {
         return s.substring(0, index);
     }
 
-    private static void addCallNotificationIntents(Context context,
-                                                   NotificationCompat.Builder builder,
-                                                   NumberInfo numberInfo) {
-        builder.setContentIntent(createInfoIntent(context, numberInfo));
+//    private static void addCallNotificationIntents(Context context,
+//                                                   NotificationCompat.Builder builder,
+//                                                   NumberInfo numberInfo) {
+//        builder.setContentIntent(createInfoIntent(context, numberInfo));
+//
+//        if (!numberInfo.noNumber && numberInfo.contactItem == null) {
+//            builder.addAction(0, context.getString(R.string.online_reviews),
+//                    createReviewsIntent(context, numberInfo));
+//        }
+//    }
 
-        if (!numberInfo.noNumber && numberInfo.contactItem == null) {
-            builder.addAction(0, context.getString(R.string.online_reviews),
-                    createReviewsIntent(context, numberInfo));
-        }
-    }
-
-    private static PendingIntent createInfoIntent(Context context, NumberInfo numberInfo) {
-        return pendingActivity(context, InfoDialogActivity.getIntent(context, numberInfo.number));
-    }
-
-    private static PendingIntent createReviewsIntent(Context context, NumberInfo numberInfo) {
-        return pendingActivity(context, clearTop(
-                ReviewsActivity.getNumberIntent(context, numberInfo.number)));
-    }
+//    private static PendingIntent createInfoIntent(Context context, NumberInfo numberInfo) {
+//        return pendingActivity(context, InfoDialogActivity.getIntent(context, numberInfo.number));
+//    }
+//
+//    private static PendingIntent createReviewsIntent(Context context, NumberInfo numberInfo) {
+//        return pendingActivity(context, clearTop(
+//                ReviewsActivity.getNumberIntent(context, numberInfo.number)));
+//    }
 
     public static void initNotificationChannels(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return;
@@ -313,17 +323,17 @@ public class NotificationHelper {
 
             NotificationChannelGroup channelGroupIncoming = new NotificationChannelGroup(
                     CHANNEL_GROUP_ID_INCOMING_CALLS,
-                    context.getString(R.string.notification_channel_group_name_incoming_calls));
+                    context.getString(R.string.incoming_calls));
             notificationManager.createNotificationChannelGroup(channelGroupIncoming);
 
             NotificationChannelGroup channelGroupBlocked = new NotificationChannelGroup(
                     CHANNEL_GROUP_ID_BLOCKED_CALLS,
-                    context.getString(R.string.notification_channel_group_name_blocked_calls));
+                    context.getString(R.string.call_block));
             notificationManager.createNotificationChannelGroup(channelGroupBlocked);
 
             NotificationChannelGroup channelGroupServices = new NotificationChannelGroup(
                     CHANNEL_GROUP_ID_SERVICES,
-                    context.getString(R.string.notification_channel_group_name_services));
+                    context.getString(R.string.call_log_grouping_none));
             notificationManager.createNotificationChannelGroup(channelGroupServices);
 
             List<NotificationChannel> channels = new ArrayList<>();

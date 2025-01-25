@@ -7,7 +7,8 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 
-import dummydomain.yetanothercallblocker.PermissionHelper;
+import com.chromatics.caller_id.utils.PermissionHelper;
+
 
 public class ContactsHelper {
 

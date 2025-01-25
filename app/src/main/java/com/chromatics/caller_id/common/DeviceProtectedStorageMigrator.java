@@ -18,8 +18,8 @@ public class DeviceProtectedStorageMigrator {
         try {
             Context dpsContext = context.createDeviceProtectedStorageContext();
 
-            if (new Settings(dpsContext).getInt(Settings.SYS_PREFERENCES_VERSION, -1) != -1) return;
-            if (new Settings(context).getInt(Settings.SYS_PREFERENCES_VERSION, -1) == -1) return;
+            if (new com.chromatics.caller_id.utils.Settings(dpsContext).getInt(com.chromatics.caller_id.utils.Settings.SYS_PREFERENCES_VERSION, -1) != -1) return;
+            if (new com.chromatics.caller_id.utils.Settings(context).getInt(com.chromatics.caller_id.utils.Settings.SYS_PREFERENCES_VERSION, -1) == -1) return;
 
             copyDir(context, dpsContext, SiaConstants.SIA_PATH_PREFIX);
             copyDir(context, dpsContext, SiaConstants.SIA_SECONDARY_PATH_PREFIX);

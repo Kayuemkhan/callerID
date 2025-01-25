@@ -54,7 +54,7 @@ public class Settings extends GenericSettings {
     public static final String PREF_BLOCK_IN_LIMITED_MODE_RATING = "rating";
     public static final String PREF_BLOCK_IN_LIMITED_MODE_BLACKLIST = "blacklist";
 
-    static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
+    public static final String SYS_PREFERENCES_VERSION = "__preferencesVersion";
 
     private static final Logger LOG = LoggerFactory.getLogger(Settings.class);
 

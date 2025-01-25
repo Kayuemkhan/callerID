@@ -116,7 +116,7 @@ public class DbManager {
     private DbDownloader.FileProcessor getDownloadFileProcessor() {
         if (numberFilter == null) return null;
 
-        NumberFilter numberFilter = adaptFilterToFileNames(this.numberFilter);
+        com.chromatics.caller_id.common.interfaces.NumberFilter numberFilter = adaptFilterToFileNames(this.numberFilter);
 
         final String dataNamePrefix = communityDatabase.getNamePrefix();
         final int dataNamePrefixLength = dataNamePrefix.length();
@@ -306,7 +306,7 @@ public class DbManager {
         if (mainDir.isDirectory() && communityDatabase.isOperational() && !communityDatabase.isUsingInternal()) {
             LOG.debug("filter() processing main DB");
 
-            NumberFilter numberFilterForFiles = adaptFilterToFileNames(numberFilter);
+            com.chromatics.caller_id.common.interfaces.NumberFilter numberFilterForFiles = adaptFilterToFileNames(numberFilter);
 
             final String dataNamePrefix = communityDatabase.getNamePrefix();
             final int dataNamePrefixLength = dataNamePrefix.length();
@@ -355,7 +355,7 @@ public class DbManager {
         filterOrDeleteSliceFile(file, numberFilter, null);
     }
 
-    private void filterOrDeleteSliceFile(File file, NumberFilter numberFilter, String slicePrefix) {
+    private void filterOrDeleteSliceFile(File file, com.chromatics.caller_id.common.interfaces.NumberFilter numberFilter, String slicePrefix) {
         LOG.trace("filterOrDeleteSliceFile() started, file={}, slicePrefix={}", file, slicePrefix);
 
         boolean keepFile = false;
@@ -406,14 +406,14 @@ public class DbManager {
         return notEmpty;
     }
 
-    private NumberFilter adaptFilterToFileNames(NumberFilter numberFilter) {
+    private com.chromatics.caller_id.common.interfaces.NumberFilter adaptFilterToFileNames(NumberFilter numberFilter) {
         if (numberFilter == null) return null;
 
         final String dataNamePrefix = communityDatabase.getNamePrefix();
         final int dataNamePrefixLength = dataNamePrefix.length();
         final String dataNamePostfix = ".dat";
 
-        return new NumberFilter() {
+        return new com.chromatics.caller_id.common.interfaces.NumberFilter() {
             @Override
             public boolean keepPrefix(String name) {
                 String numberPart = name.substring(dataNamePrefixLength, name.lastIndexOf(dataNamePostfix));

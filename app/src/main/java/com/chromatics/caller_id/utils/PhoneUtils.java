@@ -11,7 +11,8 @@ import android.telephony.TelephonyManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.android.internal.telephony.ITelephony;
+
+import com.chromatics.caller_id.common.ITelephony;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

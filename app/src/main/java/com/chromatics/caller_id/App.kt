@@ -10,7 +10,9 @@ import com.chromatics.caller_id.common.Config
 import com.chromatics.caller_id.common.DeviceProtectedStorageMigrator
 import com.chromatics.caller_id.utils.DebuggingUtils
 import com.chromatics.caller_id.utils.Settings
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
 
   companion object {
@@ -20,8 +22,10 @@ class App : Application() {
     @SuppressLint("StaticFieldLeak")
     private var settings: Settings? = null
 
+    @JvmStatic
     fun getInstance(): App? = instance
 
+    @JvmStatic
     fun getSettings(): Settings? = settings
 
     fun setUiMode(uiMode: Int) {

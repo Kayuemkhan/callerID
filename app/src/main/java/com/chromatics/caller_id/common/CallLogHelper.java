@@ -6,11 +6,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.CallLog;
 
+import com.chromatics.caller_id.utils.PermissionHelper;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import dummydomain.yetanothercallblocker.PermissionHelper;
 
 public class CallLogHelper {
 

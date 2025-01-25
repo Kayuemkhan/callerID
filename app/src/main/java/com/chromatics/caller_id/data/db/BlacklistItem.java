@@ -1,7 +1,8 @@
 package com.chromatics.caller_id.data.db;
 
-import static dummydomain.yetanothercallblocker.data.BlacklistUtils.patternFromHumanReadable;
-import static dummydomain.yetanothercallblocker.data.BlacklistUtils.patternToHumanReadable;
+
+import static com.chromatics.caller_id.common.BlacklistUtils.patternFromHumanReadable;
+import static com.chromatics.caller_id.common.BlacklistUtils.patternToHumanReadable;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;

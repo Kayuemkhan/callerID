@@ -1,6 +1,6 @@
 package com.chromatics.caller_id.utils;
 
-import static androidx.core.content.ContextCompat.startActivity;
+import static com.chromatics.caller_id.utils.IntentHelper.startActivity;
 import static java.util.Objects.requireNonNull;
 
 import android.Manifest;
