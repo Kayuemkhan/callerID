@@ -3,7 +3,7 @@
 <h1 align="center">CallerIDMorty</h1>    
 
 <p align="center">      
-🗡️ CallerIDMorty demonstrates modern Android development with Hilt, Coroutines, Flow, Jetpack (Room, ViewModel), and Material Design based on MVVM architecture. We tried to show the <b>Contacts</b> , <b>Recent Calls Log</b> , <b>Spam Call saver for later</b> 
+🗡️ CallerID demonstrates modern Android development with Hilt, Coroutines, Flow, Jetpack (Room, ViewModel), and Material Design based on MVVM architecture. We tried to show the <b>Contacts</b> , <b>Recent Calls Log</b> , <b>Spam Call saver for later</b> 
 </p>    
 
 
