@@ -7,7 +7,7 @@
 </p>    
 
 
-<img src="/previews/preview.gif" width="300" height="450"/>
+<img src="/previews/preview.gif" width="300" height="550"/>
 
 
 
