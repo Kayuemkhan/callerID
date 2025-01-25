@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.chromatics.callerID"
+    package="com.chromatics.caller_id"
     android:targetSandboxVersion="1"
     tools:targetApi="o">
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -13,7 +15,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name=".App"
+        android:name="com.chromatics.caller_id.App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,11 +26,9 @@
         android:theme="@style/Wallboard"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
+
         <activity
             android:name=".ui.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait">

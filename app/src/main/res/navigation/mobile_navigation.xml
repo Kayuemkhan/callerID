@@ -1,49 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/splashFragment">
+    app:startDestination="@id/navigation_contacts">
 
-    <!-- Splash Fragment -->
     <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.chromatics.callerID.ui.splash.SplashFragment"
-        android:label="Splash"
-        tools:layout="@layout/splash_fragment">
+        tools:layout="@layout/contacts_fragment"
+        android:id="@+id/navigation_contacts"
+        android:name="com.chromatics.caller_id.ui.contacts.ContactsFragment"
+        android:label="Contacts">
         <action
-            android:id="@+id/action_splashFragment_to_navigation_home"
-            app:destination="@id/navigation_contacts"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left" />
+            android:id="@+id/action_contacts_to_incoming_calls"
+            app:destination="@id/navigation_incoming_calls" />
     </fragment>
 
-    <!-- Home Fragment with Bottom Navigation -->
-
-
-    <!-- Contacts List -->
     <fragment
-        android:id="@+id/navigation_contacts"
-        android:name="com.chromatics.callerID.ui.home.IncomingCallsFragment"
-        android:label="Contacts"
-        tools:layout="@layout/contacts_fragment" />
-
-    <!-- Incoming Calls List -->
-    <fragment
+        tools:layout="@layout/incoming_calls"
         android:id="@+id/navigation_incoming_calls"
-        android:name="com.chromatics.callerID.ui.calls.IncomingCallsFragment"
-        android:label="Incoming Calls"
-        tools:layout="@layout/fragment_incoming_calls" />
+        android:name="com.chromatics.caller_id.ui.incoming_calls.IncomingCallsFragment"
+        android:label="Incoming Calls">
+        <action
+            android:id="@+id/action_incoming_calls_to_blocking"
+            app:destination="@id/navigation_blocking" />
+    </fragment>
 
-    <!-- Blocking Numbers -->
     <fragment
+        tools:layout="@layout/block_numbers_fragment"
         android:id="@+id/navigation_blocking"
-        android:name="com.chromatics.callerID.ui.blocking.BlockingFragment"
-        android:label="Blocking Numbers"
-        tools:layout="@layout/fragment_blocking" />
-  <fragment
-        android:id="@+id/navigation_blocking"
-        android:name="com.chromatics.callerID.ui.blocking.BlockingFragment"
-        android:label="Blocking Numbers"
-        tools:layout="@layout/fragment_blocking" />
+        android:name="com.chromatics.caller_id.ui.block_numbers.BlockNumbersFragment"
+        android:label="Blocking Numbers" />
 </navigation>

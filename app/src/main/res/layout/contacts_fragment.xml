@@ -4,17 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.splash.SplashFragment"
-    >
+    tools:context=".ui.contacts.ContactsFragment">
 
-  <androidx.appcompat.widget.AppCompatImageView
-      android:layout_width="350dp"
-      android:layout_height="350dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
+  <!-- Title for Contacts -->
+  <TextView
+      android:id="@+id/titleContacts"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/contacts"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      android:textColor="@android:color/black"
+      android:layout_marginTop="16dp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/ic_logo"
-      />
+      app:layout_constraintEnd_toEndOf="parent"/>
 
+  <!-- RecyclerView for Contacts -->
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:visibility="gone"
+      android:id="@+id/contactsRecyclerView"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintTop_toBottomOf="@id/titleContacts"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+  <TextView
+      android:visibility="visible"
+      android:text="@string/no_contacts_found"
+      android:id="@+id/noContactsFound"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintTop_toBottomOf="@id/titleContacts"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
